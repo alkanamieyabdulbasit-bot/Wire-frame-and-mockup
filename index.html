@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Campus Companion – Wireframes & Mockups</title>
+<style>
+:root{--bg:#F5F8FC;--card:#fff;--tx:#1A2433;--st:#5A6678;--pr:#1B4F9C;--lb:#E8F0FB;--bd:#D5DEEB;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10151D;--card:#182130;--tx:#E8EDF5;--st:#9AA7BA;--bd:#2B3850;--lb:#1E2B42}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 "Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{padding:28px 20px 8px;max-width:1100px;margin:auto}
+h1{font-size:28px;margin:0 0 6px;letter-spacing:-.3px}h2{font-size:20px;margin:0 0 4px}h3{font-size:15px;margin:0 0 4px}
+p{margin:0 0 8px;color:var(--st)}
+.meta{font-size:13px;color:var(--st)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;max-width:1100px;margin:14px auto 0;padding:0 20px}
+.tabs button{border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:8px 14px;border-radius:8px;font:inherit;cursor:pointer}
+.tabs button.on{background:var(--pr);color:#fff;border-color:var(--pr)}
+.tabs button:focus-visible,.phone button:focus-visible{outline:3px solid #f5a623;outline-offset:2px}
+main{max-width:1100px;margin:auto;padding:20px}
+section{display:none}section.on{display:block}
+.row{display:flex;flex-wrap:wrap;gap:22px;justify-content:center}
+.item{width:288px}
+.item h3{text-align:center;margin-top:8px}
+.proto{display:flex;flex-wrap:wrap;gap:28px;justify-content:center;align-items:flex-start}
+.note{max-width:360px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px}
+/* phone */
+.phone{--p:#1B4F9C;--l:#E8F0FB;--s:#F5F8FC;--t:#1A2433;--q:#5A6678;--b:#D5DEEB;width:288px;height:590px;border:6px solid #1A2433;border-radius:34px;background:#fff;color:var(--t);display:flex;flex-direction:column;overflow:hidden;font-size:13px;line-height:1.4}
+.wf{--p:#555;--l:#eee;--s:#fafafa;--t:#222;--q:#777;--b:#aaa}
+.scr{flex:1;padding:16px 14px;overflow:auto;background:var(--s)}
+.wf .scr{background:#fff}
+.phone nav{display:flex;border-top:1px solid var(--b);background:#fff}
+.phone nav button{flex:1;border:0;background:none;padding:7px 0 6px;color:var(--q);font:inherit;font-size:10px;cursor:default;display:flex;flex-direction:column;align-items:center;gap:1px}
+.phone nav button b{font-size:18px;line-height:1.1;font-weight:400}
+.phone nav button.on{color:var(--p);font-weight:600}
+.proto .phone nav button{cursor:pointer}
+.bar{height:20px;margin:-6px 0 8px;font-size:11px;color:var(--q);display:flex;justify-content:space-between}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.top h4{margin:0;font-size:18px}
+.av{width:38px;height:38px;border-radius:50%;background:var(--p);color:#fff;display:grid;place-items:center;font-weight:600}
+.wf .av{background:#fff;border:1.5px dashed var(--b);color:var(--q)}
+.card{background:#fff;border:1px solid var(--b);border-radius:12px;padding:12px;margin-bottom:12px}
+.hero{background:var(--p);color:#fff;border:0}.hero small{opacity:.85}
+.wf .hero{background:#fff;color:var(--t);border:1.5px solid var(--b)}
+.card small,.lbl{color:var(--q);font-size:11px}.hero small{color:#fff}.wf .hero small{color:var(--q)}
+.btn{display:block;width:100%;border:0;border-radius:8px;padding:9px;background:var(--p);color:#fff;font:inherit;font-weight:600;margin-top:10px;cursor:pointer;text-align:center;text-decoration:none}
+.btn.o{background:#fff;color:var(--p);border:1.5px solid var(--p)}
+.wf .btn{background:#fff;color:var(--t);border:1.5px solid var(--b)}
+.hero .btn{background:#fff;color:var(--p)}
+.sec{font-weight:600;margin:4px 0 8px}
+.chips{display:flex;gap:6px;margin-bottom:12px}
+.chip{padding:5px 12px;border-radius:99px;border:1px solid var(--b);background:#fff;font:inherit;font-size:12px;cursor:pointer;color:var(--t)}
+.chip.on{background:var(--p);color:#fff;border-color:var(--p)}
+.wf .chip.on{background:#e4e4e4;color:#222}
+.days{display:flex;justify-content:space-between;margin-bottom:12px}
+.day{width:46px;padding:6px 0;text-align:center;border-radius:10px;border:1px solid var(--b);background:#fff;font:inherit;cursor:pointer;color:var(--t);font-size:11px}
+.day b{display:block;font-size:15px}.day.on{background:var(--p);color:#fff;border-color:var(--p)}
+.wf .day.on{background:#e4e4e4;color:#222}
+.item-row{display:flex;gap:10px;align-items:center}
+.ico{width:36px;height:36px;border-radius:10px;background:var(--l);display:grid;place-items:center;color:var(--p);font-size:17px;flex:none}
+.wf .ico,.wf .img{border:1.5px dashed var(--b);background:#fff;color:var(--q)}
+.img{height:84px;border-radius:8px;background:var(--l);display:grid;place-items:center;font-size:28px;color:var(--p);margin-bottom:8px}
+.empty{border:1.5px dashed var(--b);border-radius:12px;padding:14px;text-align:center;color:var(--q);font-size:12px}
+.map{position:relative;height:190px;border-radius:12px;overflow:hidden;background:#e6efe0;border:1px solid var(--b);margin-bottom:12px}
+.map i{position:absolute;background:#cfe0ee;border-radius:4px}.map .rd{background:#fff;border-radius:0}
+.wf .map{background:#f3f3f3}.wf .map i{background:#ddd}
+.pin{position:absolute;left:50%;top:42%;transform:translate(-50%,-100%);width:28px;height:28px;border-radius:50% 50% 50% 0;rotate:-45deg;background:var(--p);display:grid;place-items:center}
+.pin::after{content:"";width:9px;height:9px;border-radius:50%;background:#fff}
+.map small{position:absolute;bottom:6px;left:8px;color:var(--q);font-size:10px}
+.lst{list-style:none;margin:0 0 12px;padding:0}.lst li{display:flex;justify-content:space-between;padding:11px 2px;border-bottom:1px solid var(--b)}
+.pf{text-align:center;margin-bottom:12px}.pf .av{width:64px;height:64px;margin:0 auto 8px;font-size:20px}
+.ok{position:absolute}
+/* docs */
+.sw{display:flex;gap:10px;flex-wrap:wrap}.sw div{width:120px;border:1px solid var(--bd);border-radius:10px;overflow:hidden;background:var(--card);font-size:12px}
+.sw span{display:block;height:44px}.sw p{margin:0;padding:6px 8px;color:var(--tx)}
+.flow{display:flex;flex-direction:column;align-items:center;gap:8px;margin:12px 0}
+.flow .n{padding:8px 14px;border-radius:10px;border:1px solid var(--bd);background:var(--card)}
+.flow .n.h{background:var(--pr);color:#fff;border-color:var(--pr)}
+.kids{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.an{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;margin-bottom:12px;max-width:760px}
+.an p{color:var(--tx);margin:0 0 4px}
+footer{text-align:center;padding:24px;color:var(--st);font-size:13px}
+</style></head><body>
+<header>
+<h1>Campus Companion</h1>
+<p>A mobile app that puts a student's timetable, campus map, events and profile in one place. Designed for Bayero University Kano.</p>
+<div class="meta">Designer: AbdulBasit AbdulAzeez Alkanamiey · 200 level, Software Engineering · Bayero University Kano</div>
+<div class="meta" style="margin-top:4px"><i>Designed with AI assistance (Claude). See "Use of AI assistance" in the last tab.</i></div>
+</header>
+<div class="tabs" role="tablist" id="tabs"></div>
+<main>
+<section id="s-proto"><div class="proto"><div id="live"></div>
+<div class="note"><h2>Try the prototype</h2><p>Tap the tab bar to move between screens. Tap a weekday on Timetable (only Friday has a class), tap Save on Events, and tap "View on map" on Home.</p><p>Brief: help students find their next class, the building it is in, and what is happening on campus, in as few taps as possible.</p></div></div></section>
+<section id="s-wire"><h2 style="text-align:center">Low-fidelity wireframes</h2><p style="text-align:center">Grayscale layout only: structure, hierarchy and navigation, with no colour or imagery.</p><div class="row" id="wf"></div></section>
+<section id="s-mock"><h2 style="text-align:center">High-fidelity mockups</h2><p style="text-align:center">The same layouts with the style guide, real content and finished spacing.</p><div class="row" id="hf"></div></section>
+<section id="s-doc">
+<div style="max-width:760px;margin:auto">
+<h2>Screen flow</h2>
+<div class="flow"><div class="n h">Home dashboard</div><div>↓</div><div class="kids"><div class="n">Timetable</div><div class="n">Campus map</div><div class="n">Events</div><div class="n">Profile</div></div></div>
+<p>Every screen is one tap from every other through the persistent tab bar. Home also links straight to the map ("View on map").</p>
+<h2 style="margin-top:24px">Style guide</h2>
+<div class="sw">
+<div><span style="background:#1B4F9C"></span><p>Primary blue<br>#1B4F9C</p></div>
+<div><span style="background:#E8F0FB"></span><p>Light blue<br>#E8F0FB</p></div>
+<div><span style="background:#F5F8FC;border-bottom:1px solid #D5DEEB"></span><p>Surface<br>#F5F8FC</p></div>
+<div><span style="background:#1A2433"></span><p>Text<br>#1A2433</p></div>
+<div><span style="background:#5A6678"></span><p>Secondary text<br>#5A6678</p></div></div>
+<p style="margin-top:12px">Type: clean sans-serif (Inter recommended if rebuilt in Figma). Heading 14 medium, body 12 regular, caption 11 regular. Shapes: cards with 12px radius, buttons with 8px radius, line icons.</p>
+<h2 style="margin-top:24px">Design annotations</h2>
+<div class="an"><h3>Home</h3><p>The next class comes first because it is what students check most often. It shows time, room and building so no second lookup is needed. "Coming up" gives a glance at events without leaving the screen.</p></div>
+<div class="an"><h3>Timetable</h3><p>Organised by day with a week strip, so a student sees one day at a time. Days with no classes show an empty state instead of a blank screen.</p></div>
+<div class="an"><h3>Campus map</h3><p>The selected building sits in a card under the map with a single clear action, "Get directions". The map is illustrative; a live map would replace it in a real build.</p></div>
+<div class="an"><h3>Events</h3><p>Filter chips (All, Today, Clubs) narrow a scrollable feed. Each card has a Save action so students can keep events for later in Profile.</p></div>
+<div class="an"><h3>Profile</h3><p>A simple settings list with identity at the top. Sign out is visually separated and outlined so it is not tapped by accident.</p></div>
+<div class="an"><h3>Overall choices</h3><p><b>Consistency:</b> one tab bar on every screen, so users always know where they are. <b>Restraint:</b> a single blue accent keeps the app calm, academic and easy to scan. <b>Accessibility:</b> dark text on light surfaces for strong contrast, and large tap targets of at least 44px height.</p></div>
+<h2 style="margin-top:24px">Use of AI assistance</h2>
+<div class="an"><p>I used Claude, an AI assistant made by Anthropic, to support this assignment. I picked the Campus Companion concept from several ideas it suggested and supplied all the real details myself: my university, building, course, event and student information. Claude helped me plan the screen flow and generate the wireframes, mockups and clickable prototype. I reviewed the design choices and I am responsible for this submission.</p></div>
+</div></section>
+</main>
+<footer>Campus Companion · Student design assignment · Human Computer Interaction</footer>
+<script>
+var T=[["home","Home","⌂"],["time","Classes","▦"],["map","Map","⌖"],["ev","Events","✦"],["me","Me","☺"]];
+var st={day:4,saved:false,tab:"home"};
+var Dn=["M","T","W","T","F"],Dd=[12,13,14,15,16];
+var MAP="https://www.google.com/maps/search/?api=1&query=TY+Danjuma+Building+Bayero+University+Kano";
+function bar(){return '<div class="bar"><span>8:32</span><span>●●● ▮</span></div>'}
+function home(){return bar()+'<div class="top"><div><div class="lbl">Good morning,</div><h4>AbdulBasit</h4><div class="lbl">Bayero University Kano</div></div><div class="av">AA</div></div>'+
+'<div class="card hero"><small>Next class · Friday</small><div style="font-weight:600;font-size:15px;margin:2px 0">Human Computer Interaction</div><div>8:00 – 10:00 AM</div><small>Theatre A, TY Danjuma Building</small><button class="btn" data-go="map">View on map</button></div>'+
+'<div class="sec">Coming up</div><div class="card item-row"><div class="ico">☺</div><div><b>Islamic Political Class (IPC)</b><br><small>Kitchen conversion</small></div></div>'}
+function time(d){d=d==null?st.day:d;var h='<div class="top"><h4>Timetable</h4><span class="lbl">Week of 12 Oct</span></div><div class="days">';
+for(var i=0;i<5;i++)h+='<button class="day'+(i==d?' on':'')+'" data-day="'+i+'"><span>'+Dn[i]+'</span><b>'+Dd[i]+'</b></button>';
+h+='</div><div class="sec">'+["Monday","Tuesday","Wednesday","Thursday","Friday"][d]+'</div>';
+if(d==4)h+='<div class="card"><b>8:00 – 10:00 AM</b><div style="font-size:14px;margin:2px 0">Human Computer Interaction</div><small>INS · Theatre A<br>TY Danjuma Building, FOC</small></div>';
+return bar()+h+'<div class="empty">No other classes scheduled</div>'}
+function map(){return bar()+'<div class="top"><h4>Campus map</h4></div><div class="card" style="padding:8px 10px;color:var(--q)">⌕ Find a place</div>'+
+'<div class="map"><i style="left:8%;top:10%;width:30%;height:26%"></i><i style="left:46%;top:8%;width:22%;height:30%"></i><i style="left:10%;top:58%;width:26%;height:30%"></i><i style="left:60%;top:56%;width:30%;height:32%;background:#b9cdea"></i><i class="rd" style="left:0;top:45%;width:100%;height:7px"></i><i class="rd" style="left:40%;top:0;width:7px;height:100%"></i><div class="pin"></div><small>Illustrative map</small></div>'+
+'<div class="card"><b>TY Danjuma Building, FOC</b><br><small>Bayero University Kano, Kano State</small><a class="btn" href="'+MAP+'" target="_blank" rel="noopener">Get directions</a></div>'}
+function ev(){return bar()+'<div class="top"><h4>Events</h4></div><div class="chips"><button class="chip on">All</button><button class="chip">Today</button><button class="chip">Clubs</button></div>'+
+'<div class="card"><div class="img">☺</div><b>Islamic Political Class (IPC)</b><br><small>⌖ Kitchen conversion</small><button class="btn o" data-save="1">'+(st.saved?'✔ Saved':'Save event')+'</button></div><div class="empty">More campus events will appear here</div>'}
+function me(){return bar()+'<div class="top"><h4>Profile</h4></div><div class="pf"><div class="av">AA</div><b>AbdulBasit AbdulAzeez<br>Alkanamiey</b><br><small>Software Engineering · 200 level<br>Bayero University Kano</small></div>'+
+'<ul class="lst"><li>My courses<span>›</span></li><li>Saved events<span>›</span></li><li>Notifications<span>›</span></li><li>Settings<span>›</span></li></ul><button class="btn o">Sign out</button>'}
+var F={home:home,time:time,map:map,ev:ev,me:me};
+function ph(id,cls,live){var n=T.map(function(t){return '<button'+(live?' data-go="'+t[0]+'"':' tabindex="-1"')+(t[0]==id?' class="on" aria-current="page"':'')+'><b>'+t[2]+'</b>'+t[1]+'</button>'}).join('');
+return '<div class="phone '+cls+'"><div class="scr">'+F[id]()+'</div><nav>'+n+'</nav></div>'}
+function stat(cls){return T.map(function(t){return '<div class="item">'+ph(t[0],cls,false)+'<h3>'+{home:"Home",time:"Timetable",map:"Campus map",ev:"Events",me:"Profile"}[t[0]]+'</h3></div>'}).join('')}
+document.getElementById('wf').innerHTML=stat('wf');document.getElementById('hf').innerHTML=stat('');
+function live(){document.getElementById('live').innerHTML=ph(st.tab,'',true)}
+live();
+document.getElementById('live').addEventListener('click',function(e){var g=e.target.closest('[data-go]'),d=e.target.closest('[data-day]'),s=e.target.closest('[data-save]');
+if(g){st.tab=g.dataset.go;if(st.tab=='time')st.day=4;live()}
+else if(d){st.day=+d.dataset.day;live()}
+else if(s){st.saved=!st.saved;live()}});
+var tabs=[["s-proto","Clickable prototype"],["s-wire","Wireframes"],["s-mock","Mockups"],["s-doc","Flow, style & annotations"]];
+var tb=document.getElementById('tabs');
+tabs.forEach(function(t,i){var b=document.createElement('button');b.textContent=t[1];b.setAttribute('role','tab');b.onclick=function(){show(i)};tb.appendChild(b)});
+function show(i){tabs.forEach(function(t,j){document.getElementById(t[0]).classList.toggle('on',i==j);tb.children[j].classList.toggle('on',i==j)})}
+show(0);
+</script></body></html>
